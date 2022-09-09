@@ -31,7 +31,7 @@ export const ScoreContainer = styled.div`
   height: 7rem;
   width: 7rem;
   border-radius: 0.5rem;
-  background-color: white;
+  background-color: hsla(0, 0%, 100%, 1);
   padding: 0.5rem;
   line-height: 2.3rem;
   h2 {

@@ -3,15 +3,13 @@ import bgPentagon from "../../images/bg-pentagon.svg";
 
 export const Wrapper = styled.main`
   position: relative;
-  background-image: url(${bgPentagon})
-  background-color:red;
   border-radius: 50%;
   width: 400px;
   height: 300px;
   @media screen and (max-width: 960px) {
     width: 200px;
-  height: 200px;
-}
+    height: 200px;
+  }
 `;
 
 export const OptionContainer = styled.div`
@@ -25,7 +23,7 @@ export const OptionContainer = styled.div`
   width: 100px;
   border-radius: 50%;
   border: 10px solid;
-  background-color: white;
+  background-color: hsla(0, 0%, 100%, 1);
   img {
     width: 50%;
   }
@@ -36,23 +34,23 @@ export const OptionContainer = styled.div`
   }
   :nth-child(1) {
     transform: rotate(-90deg) translateX(150px);
-    border-color: orange;
+    border-color: hsla(23, 90%, 52%, 1);
   }
   :nth-child(2) {
     transform: rotate(-18deg) translateX(150px);
-    border-color: blue;
+    border-color: hsl(240, 100%, 50%);
   }
   :nth-child(3) {
     transform: rotate(54deg) translateX(150px);
-    border-color: red;
+    border-color: hsl(0, 100%, 50%);
   }
   :nth-child(4) {
     transform: rotate(126deg) translateX(150px);
-    border-color: purple;
+    border-color: hsla(270, 50%, 40%, 1);
   }
   :nth-child(5) {
     transform: rotate(198deg) translateX(150px);
-    border-color: turquoise;
+    border-color: hsl(180, 100%, 50%);
   }
   @media screen and (max-width: 960px) {
     left: calc(50% - 50px);
