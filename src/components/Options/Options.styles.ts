@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import bgPentagon from "../../images/bg-pentagon.svg";
 
 export const Wrapper = styled.main`
   position: relative;

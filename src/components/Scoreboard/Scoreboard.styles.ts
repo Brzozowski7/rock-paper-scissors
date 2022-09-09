@@ -10,6 +10,7 @@ export const ScoreboardWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  margin-top: 1rem;
   @media screen and (max-width: 960px) {
     width: 100%;
   }
