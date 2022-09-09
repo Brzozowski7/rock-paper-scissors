@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10rem;
   width: 100vw;
   height: 100vh;
   background-image: radial-gradient(
@@ -14,4 +15,5 @@ export const Wrapper = styled.div`
   padding: 3rem;
   color: hsl(0, 255%, 255%);
   font-family: "Barlow Semi Condensed", sans-serif;
+  overflow-x: hidden;
 `;

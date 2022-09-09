@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ScoreboardWrapper = styled.div`
+export const ScoreboardWrapper = styled.header`
   user-select: none;
   width: 50%;
   border: 1px solid lightgray;
