@@ -11,26 +11,30 @@ import { gameOptions } from "../../misc/gameOptions";
 import { checkWinner } from "./Duel.utils";
 
 interface ChildProps {
-  player: {
+  playerChoice: {
     value: string;
     color: string;
     src: string;
   };
-  setPlayerChoice: Dispatch<SetStateAction<CChoice>>;
+  setPlayerChoice: Dispatch<SetStateAction<Choice>>;
   setScoreCounter: Dispatch<SetStateAction<number>>;
 }
-interface CChoice {
+interface Choice {
   value: string;
   color: string;
   src: string;
 }
 
 export default function Duel({
-  player,
+  playerChoice,
   setPlayerChoice,
   setScoreCounter,
 }: ChildProps) {
-  const [computerChoice, setComputerChoice] = useState<CChoice>();
+  const [computerChoice, setComputerChoice] = useState<Choice>({
+    value: "",
+    color: "",
+    src: "",
+  });
   const [result, setResult] = useState<string>();
 
   const randomComputerChoice = () => {
@@ -55,9 +59,9 @@ export default function Duel({
   }, []);
 
   useEffect(() => {
-    setResult(checkWinner(player.value, computerChoice?.value));
+    setResult(checkWinner(playerChoice.value, computerChoice.value));
   }, [computerChoice]);
-  
+
   useEffect(() => {
     if (result === "Player") {
       setScoreCounter((prev) => prev + 1);
@@ -81,11 +85,11 @@ export default function Duel({
           : "It's a draw"}
       </p>
       <Choices>
-        <PlayerChoiceContainer borderColorPlayer={player.color}>
-          <img src={player.src} alt="playerChoice icon" />
+        <PlayerChoiceContainer borderColorPlayer={playerChoice.color}>
+          <img src={playerChoice.src} alt="playerChoice icon" />
         </PlayerChoiceContainer>
-        <ComputerChoiceContainer borderColorComputer={computerChoice?.color}>
-          <img src={computerChoice?.src} alt="computerChoice icon" />
+        <ComputerChoiceContainer borderColorComputer={computerChoice.color}>
+          <img src={computerChoice.src} alt="computerChoice icon" />
         </ComputerChoiceContainer>
       </Choices>
       <BackBtn onClick={goBack}>Go back</BackBtn>

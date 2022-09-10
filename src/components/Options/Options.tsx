@@ -3,18 +3,18 @@ import { motion } from "framer-motion";
 import { Wrapper, OptionContainer } from "./Options.styles";
 import { gameOptions } from "../../misc/gameOptions";
 
-interface PChoice {
+interface Choice {
   value: string;
   color: string;
   src: string;
 }
 
 interface ChildProps {
-  setPlayerChoice: Dispatch<SetStateAction<PChoice>>;
+  setPlayerChoice: Dispatch<SetStateAction<Choice>>;
 }
 
 export default function Options({ setPlayerChoice }: ChildProps) {
-  const handleClick = (value: string, src: string, color: string) => {
+  const handleClick = (value: string, src: string, color: string): void => {
     setPlayerChoice({
       value: value,
       src: src,
@@ -31,6 +31,7 @@ export default function Options({ setPlayerChoice }: ChildProps) {
       {gameOptions.map((item) => {
         return (
           <OptionContainer
+            key={item.value}
             onClick={() => handleClick(item.value, item.src, item.color)}
             borderColor={item.color}
           >
