@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface Option {
+  borderColor: string;
+}
+
 export const Wrapper = styled.main`
   position: relative;
   border-radius: 50%;
@@ -11,7 +15,7 @@ export const Wrapper = styled.main`
   }
 `;
 
-export const OptionContainer = styled.div`
+export const OptionContainer = styled.div<Option>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +25,7 @@ export const OptionContainer = styled.div`
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  border: 10px solid;
+  border: ${(props) => `10px solid ${props.borderColor}`};
   background-color: hsla(0, 0%, 100%, 1);
   img {
     width: 50%;
@@ -33,23 +37,18 @@ export const OptionContainer = styled.div`
   }
   :nth-child(1) {
     transform: rotate(-90deg) translateX(150px);
-    border-color: hsla(23, 90%, 52%, 1);
   }
   :nth-child(2) {
     transform: rotate(-18deg) translateX(150px);
-    border-color: hsl(240, 100%, 50%);
   }
   :nth-child(3) {
     transform: rotate(54deg) translateX(150px);
-    border-color: hsl(0, 100%, 50%);
   }
   :nth-child(4) {
     transform: rotate(126deg) translateX(150px);
-    border-color: hsla(270, 50%, 40%, 1);
   }
   :nth-child(5) {
     transform: rotate(198deg) translateX(150px);
-    border-color: hsl(180, 100%, 50%);
   }
   @media screen and (max-width: 960px) {
     left: calc(50% - 50px);
