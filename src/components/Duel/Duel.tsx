@@ -8,7 +8,7 @@ import {
   BackBtn,
 } from "./Duel.styles";
 import { gameOptions } from "../../misc/gameOptions";
-import { combinations } from "./Duel.const";
+import { checkWinner } from "./Duel.utils";
 
 interface ChildProps {
   player: {
@@ -41,33 +41,7 @@ export default function Duel({
       color: gameOptions[randomNumber].color,
     });
   };
-  const checkWinner = () => {
-    switch (player.value + computerChoice?.value) {
-      case combinations.ScissorsPaper:
-      case combinations.RockScissors:
-      case combinations.PaperRock:
-      case combinations.LizardPaper:
-      case combinations.SmockScissors:
-      case combinations.RockLizard:
-      case combinations.PaperSmock:
-      case combinations.SmockRock:
-      case combinations.ScissorsLizard:
-      case combinations.LizardSmock:
-        setResult("Player");
-        setScoreCounter((prev) => prev + 3);
-        break;
-      case combinations.RockRock:
-      case combinations.LizardLizard:
-      case combinations.PaperPaper:
-      case combinations.SmockSmock:
-      case combinations.ScissorsScissors:
-        setResult("Draw");
-        break;
-      default:
-        setResult("Computer");
-        setScoreCounter((prev) => prev - 1);
-    }
-  };
+
   const goBack = () => {
     setPlayerChoice({
       value: "",
@@ -81,8 +55,16 @@ export default function Duel({
   }, []);
 
   useEffect(() => {
-    checkWinner();
+    setResult(checkWinner(player.value, computerChoice?.value));
   }, [computerChoice]);
+  
+  useEffect(() => {
+    if (result === "Player") {
+      setScoreCounter((prev) => prev + 1);
+    } else if (result === "Computer") {
+      setScoreCounter((prev) => prev - 1);
+    } else return;
+  }, [result]);
 
   return (
     <Wrapper
