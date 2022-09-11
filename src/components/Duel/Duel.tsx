@@ -19,23 +19,20 @@ interface ChildProps {
   setPlayerChoice: Dispatch<SetStateAction<Choice>>;
   setScoreCounter: Dispatch<SetStateAction<number>>;
 }
-interface Choice {
-  value: string;
-  color: string;
-  src: string;
-}
 
 export default function Duel({
   playerChoice,
   setPlayerChoice,
   setScoreCounter,
 }: ChildProps) {
+  
   const [computerChoice, setComputerChoice] = useState<Choice>({
     value: "",
     color: "",
     src: "",
   });
-  const [result, setResult] = useState<string>();
+
+  const [result, setResult] = useState<number>(0);
 
   const randomComputerChoice = () => {
     const randomNumber = Math.floor(Math.random() * 5);
@@ -63,11 +60,7 @@ export default function Duel({
   }, [computerChoice]);
 
   useEffect(() => {
-    if (result === "Player") {
-      setScoreCounter((prev) => prev + 1);
-    } else if (result === "Computer") {
-      setScoreCounter((prev) => prev - 1);
-    } else return;
+    setScoreCounter((prev) => prev + result);
   }, [result]);
 
   return (
@@ -78,9 +71,9 @@ export default function Duel({
       exit={{ x: "-100%" }}
     >
       <p>
-        {result === "Player"
+        {result === 1
           ? "Player wins"
-          : result === "Computer"
+          : result === -1
           ? "Computer wins"
           : "It's a draw"}
       </p>

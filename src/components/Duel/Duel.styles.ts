@@ -4,7 +4,7 @@ interface PropsPlayer {
   borderColorPlayer: string;
 }
 interface PropsComputer {
-  borderColorComputer: string | undefined;
+  borderColorComputer: string;
 }
 
 export const Wrapper = styled.main`
@@ -28,6 +28,8 @@ export const PlayerChoiceContainer = styled.div<PropsPlayer>`
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   border: ${(props) =>
     props.borderColorPlayer ? `1rem solid ${props.borderColorPlayer}` : "none"};
   background-color: ${(props) =>
@@ -48,6 +50,8 @@ export const ComputerChoiceContainer = styled.div<PropsComputer>`
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   border: ${(props) =>
     props.borderColorComputer
       ? `1rem solid ${props.borderColorComputer}`

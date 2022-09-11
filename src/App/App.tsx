@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
 import { Wrapper } from "./App.styles";
-import Scoreboard from "../components/Scoreboard/Scoreboard";
-import Options from "../components/Options/Options";
-import RulesBtn from "../components/RulesBtn/RulesBtn";
-import Rules from "../components/Rules/Rules";
-import Duel from "../components/Duel/Duel";
-
-interface Choice {
-  value: string;
-  color: string;
-  src: string;
-}
+import Scoreboard from "../components/Scoreboard";
+import Options from "../components/Options";
+import RulesBtn from "../components/RulesBtn";
+import Rules from "../components/Rules";
+import Duel from "../components/Duel";
 
 function App() {
   const [rulesActive, setRulesActive] = useState<boolean>(false);
@@ -19,6 +13,7 @@ function App() {
     color: "",
     src: "",
   });
+
   const [scoreCounter, setScoreCounter] = useState<number>(0);
 
   useEffect(() => {

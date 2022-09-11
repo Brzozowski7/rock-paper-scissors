@@ -2,7 +2,7 @@ import { combinations } from "./Duel.const";
 
 export const checkWinner = (
   playerChoice: string,
-  computerChoice: string | undefined
+  computerChoice: string
 ) => {
   switch (playerChoice + computerChoice) {
     case combinations.ScissorsPaper:
@@ -15,15 +15,13 @@ export const checkWinner = (
     case combinations.SmockRock:
     case combinations.ScissorsLizard:
     case combinations.LizardSmock:
-      return "Player";
-      break;
+      return 1;
     case combinations.RockRock:
     case combinations.LizardLizard:
     case combinations.PaperPaper:
     case combinations.SmockSmock:
     case combinations.ScissorsScissors:
-      return "Draw";
-      break;
+      return 0;
     case combinations.SmockLizard:
     case combinations.LizardScissors:
     case combinations.RockSmock:
@@ -34,9 +32,8 @@ export const checkWinner = (
     case combinations.RockPaper:
     case combinations.ScissorsRock:
     case combinations.PaperScissors:
-      return "Computer";
-      break;
+      return -1;
     default:
-      return;
+      return 0;
   }
 };

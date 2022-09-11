@@ -1,19 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { Wrapper, OptionContainer } from "./Options.styles";
 import { gameOptions } from "../../misc/gameOptions";
 
-interface Choice {
-  value: string;
-  color: string;
-  src: string;
-}
-
-interface ChildProps {
-  setPlayerChoice: Dispatch<SetStateAction<Choice>>;
-}
-
-export default function Options({ setPlayerChoice }: ChildProps) {
+export default function Options({ setPlayerChoice }: ISetChoice) {
   const handleClick = (value: string, src: string, color: string): void => {
     setPlayerChoice({
       value: value,

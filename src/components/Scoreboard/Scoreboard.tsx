@@ -5,11 +5,11 @@ import {
 } from "./Scoreboard.styles";
 import logo from "../../images/logo-bonus.svg";
 
-interface ChildProps {
+interface IProps {
   score: number;
 }
 
-export default function Scoreboard({ score }: ChildProps) {
+export default function Scoreboard({ score }: IProps) {
   return (
     <ScoreboardWrapper>
       <GameTitle>
