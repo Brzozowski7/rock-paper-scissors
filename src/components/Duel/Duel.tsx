@@ -25,12 +25,7 @@ export default function Duel({
   setPlayerChoice,
   setScoreCounter,
 }: ChildProps) {
-  
-  const [computerChoice, setComputerChoice] = useState<Choice>({
-    value: "",
-    color: "",
-    src: "",
-  });
+  const [computerChoice, setComputerChoice] = useState<Choice>({} as Choice);
 
   const [result, setResult] = useState<number>(0);
 

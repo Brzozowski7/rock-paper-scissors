@@ -5,26 +5,22 @@ import Options from "../components/Options";
 import RulesBtn from "../components/RulesBtn";
 import Rules from "../components/Rules";
 import Duel from "../components/Duel";
+import { useLocalStorage } from "./useLocalStorage";
 
 function App() {
   const [rulesActive, setRulesActive] = useState<boolean>(false);
-  const [playerChoice, setPlayerChoice] = useState<Choice>({
-    value: "",
-    color: "",
-    src: "",
-  });
-
+  const [playerChoice, setPlayerChoice] = useState<Choice>({} as Choice);
   const [scoreCounter, setScoreCounter] = useState<number>(0);
-
+  const [localStorageScore, setLocalStorageScore] = useLocalStorage(
+    "score",
+    scoreCounter
+  );
+  
   useEffect(() => {
-    const checkLocalStorageForScore = localStorage.getItem("score");
-    if (checkLocalStorageForScore) {
-      setScoreCounter(JSON.parse(checkLocalStorageForScore));
-    }
+    setScoreCounter(localStorageScore);
   }, []);
-
   useEffect(() => {
-    localStorage.setItem("score", JSON.stringify(scoreCounter));
+    setLocalStorageScore(scoreCounter);
   }, [scoreCounter]);
 
   return (
