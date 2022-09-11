@@ -1,33 +1,30 @@
 import { combinations } from "./Duel.const";
 
-export const checkWinner = (
-  playerChoice: string,
-  computerChoice: string
-) => {
+export const checkWinner = (playerChoice: string, computerChoice: string) => {
   switch (playerChoice + computerChoice) {
     case combinations.ScissorsPaper:
     case combinations.RockScissors:
     case combinations.PaperRock:
     case combinations.LizardPaper:
-    case combinations.SmockScissors:
+    case combinations.SpockScissors:
     case combinations.RockLizard:
-    case combinations.PaperSmock:
-    case combinations.SmockRock:
+    case combinations.PaperSpock:
+    case combinations.SpockRock:
     case combinations.ScissorsLizard:
-    case combinations.LizardSmock:
+    case combinations.LizardSpock:
       return 1;
     case combinations.RockRock:
     case combinations.LizardLizard:
     case combinations.PaperPaper:
-    case combinations.SmockSmock:
+    case combinations.SpockSpock:
     case combinations.ScissorsScissors:
       return 0;
-    case combinations.SmockLizard:
+    case combinations.SpockLizard:
     case combinations.LizardScissors:
-    case combinations.RockSmock:
-    case combinations.SmockPaper:
+    case combinations.RockSpock:
+    case combinations.SpockPaper:
     case combinations.LizardRock:
-    case combinations.ScissorsSmock:
+    case combinations.ScissorsSpock:
     case combinations.PaperLizard:
     case combinations.RockPaper:
     case combinations.ScissorsRock:

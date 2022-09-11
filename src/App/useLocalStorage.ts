@@ -6,11 +6,14 @@ export const useLocalStorage = (
 ): [number, (value: number | ((val: number) => number)) => void] => {
   const [storedValue, setStoredValue] = useState<number>(() => {
     try {
-      const item = localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.log(error);
-      return initialValue;
+      const check = localStorage.getItem(key);
+      if (check) {
+        return JSON.parse(check);
+      } else {
+        return initialValue;
+      }
+    } catch (err) {
+      console.log(err);
     }
   });
 
