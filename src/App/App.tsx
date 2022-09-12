@@ -7,10 +7,11 @@ import Rules from "../components/Rules";
 import Duel from "../components/Duel";
 import useLocalStorage from "./useLocalStorage";
 
+
 function App() {
-  const [rulesActive, setRulesActive] = useState<boolean>(false);
-  const [playerChoice, setPlayerChoice] = useState<Choice>({} as Choice);
-  const [scoreCounter, setScoreCounter] = useState<number>(0);
+  const [rulesActive, setRulesActive] = useState(false);
+  const [playerChoice, setPlayerChoice] = useState({} as Choice);
+  const [scoreCounter, setScoreCounter] = useState(0);
   const [localStorageScore, setLocalStorageScore] = useLocalStorage(
     "score",
     scoreCounter

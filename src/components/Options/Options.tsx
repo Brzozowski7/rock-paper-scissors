@@ -2,13 +2,14 @@ import { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { Wrapper, OptionContainer } from "./Options.styles";
 import { gameOptions } from "../../misc/gameOptions";
+import {Value} from "../../common"
 
-interface ISetChoice {
+interface OptionsProps {
   setPlayerChoice: Dispatch<SetStateAction<Choice>>;
 }
 
-export default function Options({ setPlayerChoice }: ISetChoice) {
-  const handleClick = (value: string, src: string, color: string): void => {
+export default function Options({ setPlayerChoice }: OptionsProps) {
+  const handleClick = (value: Value, src: string, color: string): void => {
     setPlayerChoice({
       value: value,
       src: src,

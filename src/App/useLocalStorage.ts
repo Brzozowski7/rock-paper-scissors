@@ -4,7 +4,7 @@ const useLocalStorage = (
   key: string,
   initialValue: number
 ): [number, (value: number | ((val: number) => number)) => void] => {
-  const [storedValue, setStoredValue] = useState<number>(() => {
+  const [storedValue, setStoredValue] = useState(() => {
     try {
       const check = localStorage.getItem(key);
       if (check) {

@@ -9,10 +9,11 @@ import {
 } from "./Duel.styles";
 import { gameOptions } from "../../misc/gameOptions";
 import { checkWinner } from "./Duel.utils";
+import {Value} from "../../common"
 
-interface ChildProps {
+interface DuelProps {
   playerChoice: {
-    value: string;
+    value: Value;
     color: string;
     src: string;
   };
@@ -24,9 +25,9 @@ export default function Duel({
   playerChoice,
   setPlayerChoice,
   setScoreCounter,
-}: ChildProps) {
-  const [computerChoice, setComputerChoice] = useState<Choice>({} as Choice);
+}: DuelProps) {
 
+  const [computerChoice, setComputerChoice] = useState({} as Choice);
   const [result, setResult] = useState<number>(0);
 
   const randomComputerChoice = (): void => {
@@ -40,7 +41,7 @@ export default function Duel({
 
   const goBack = (): void => {
     setPlayerChoice({
-      value: "",
+      value: Value.Null,
       color: "",
       src: "",
     });

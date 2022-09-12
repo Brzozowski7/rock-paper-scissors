@@ -1,4 +1,4 @@
-export enum combinations {
+export enum Combinations {
   ScissorsPaper = "ScissorsPaper",
   RockScissors = "RockScissors",
   PaperRock = "PaperRock",

@@ -1,34 +1,34 @@
-import { combinations } from "./Duel.const";
+import { Combinations } from "./Duel.const";
 
 export const checkWinner = (playerChoice: string, computerChoice: string) => {
   switch (playerChoice + computerChoice) {
-    case combinations.ScissorsPaper:
-    case combinations.RockScissors:
-    case combinations.PaperRock:
-    case combinations.LizardPaper:
-    case combinations.SpockScissors:
-    case combinations.RockLizard:
-    case combinations.PaperSpock:
-    case combinations.SpockRock:
-    case combinations.ScissorsLizard:
-    case combinations.LizardSpock:
+    case Combinations.ScissorsPaper:
+    case Combinations.RockScissors:
+    case Combinations.PaperRock:
+    case Combinations.LizardPaper:
+    case Combinations.SpockScissors:
+    case Combinations.RockLizard:
+    case Combinations.PaperSpock:
+    case Combinations.SpockRock:
+    case Combinations.ScissorsLizard:
+    case Combinations.LizardSpock:
       return 1;
-    case combinations.RockRock:
-    case combinations.LizardLizard:
-    case combinations.PaperPaper:
-    case combinations.SpockSpock:
-    case combinations.ScissorsScissors:
+    case Combinations.RockRock:
+    case Combinations.LizardLizard:
+    case Combinations.PaperPaper:
+    case Combinations.SpockSpock:
+    case Combinations.ScissorsScissors:
       return 0;
-    case combinations.SpockLizard:
-    case combinations.LizardScissors:
-    case combinations.RockSpock:
-    case combinations.SpockPaper:
-    case combinations.LizardRock:
-    case combinations.ScissorsSpock:
-    case combinations.PaperLizard:
-    case combinations.RockPaper:
-    case combinations.ScissorsRock:
-    case combinations.PaperScissors:
+    case Combinations.SpockLizard:
+    case Combinations.LizardScissors:
+    case Combinations.RockSpock:
+    case Combinations.SpockPaper:
+    case Combinations.LizardRock:
+    case Combinations.ScissorsSpock:
+    case Combinations.PaperLizard:
+    case Combinations.RockPaper:
+    case Combinations.ScissorsRock:
+    case Combinations.PaperScissors:
       return -1;
     default:
       return 0;

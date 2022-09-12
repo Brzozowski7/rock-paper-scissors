@@ -1,7 +1,5 @@
-declare module "*.svg";
-
 interface Choice {
-  value: string;
+  value: Value;
   color: string;
   src: string;
 }
