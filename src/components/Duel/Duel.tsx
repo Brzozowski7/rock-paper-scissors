@@ -29,7 +29,7 @@ export default function Duel({
 
   const [result, setResult] = useState<number>(0);
 
-  const randomComputerChoice = () => {
+  const randomComputerChoice = (): void => {
     const randomNumber = Math.floor(Math.random() * 5);
     setComputerChoice({
       value: gameOptions[randomNumber].value,
@@ -38,7 +38,7 @@ export default function Duel({
     });
   };
 
-  const goBack = () => {
+  const goBack = (): void => {
     setPlayerChoice({
       value: "",
       color: "",
@@ -73,10 +73,10 @@ export default function Duel({
           : "It's a draw"}
       </p>
       <Choices>
-        <PlayerChoiceContainer borderColorPlayer={playerChoice.color}>
+        <PlayerChoiceContainer borderColor={playerChoice.color}>
           <img src={playerChoice.src} alt="playerChoice icon" />
         </PlayerChoiceContainer>
-        <ComputerChoiceContainer borderColorComputer={computerChoice.color}>
+        <ComputerChoiceContainer borderColor={computerChoice.color}>
           <img src={computerChoice.src} alt="computerChoice icon" />
         </ComputerChoiceContainer>
       </Choices>

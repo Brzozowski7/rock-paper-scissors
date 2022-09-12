@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-interface PropsPlayer {
-  borderColorPlayer: string;
-}
-interface PropsComputer {
-  borderColorComputer: string;
-}
-
 export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
@@ -21,7 +14,7 @@ export const Wrapper = styled.main`
   }
 `;
 
-export const PlayerChoiceContainer = styled.div<PropsPlayer>`
+export const PlayerChoiceContainer = styled.div<{ borderColor: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,9 +24,9 @@ export const PlayerChoiceContainer = styled.div<PropsPlayer>`
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   border: ${(props) =>
-    props.borderColorPlayer ? `1rem solid ${props.borderColorPlayer}` : "none"};
+    props.borderColor ? `1rem solid ${props.borderColor}` : "none"};
   background-color: ${(props) =>
-    props.borderColorPlayer ? "hsla(0, 0%, 100%, 1)" : "hsla(0, 0%, 0%, 0.3)"};
+    props.borderColor ? "hsla(0, 0%, 100%, 1)" : "hsla(0, 0%, 0%, 0.3)"};
   img {
     object-fit: cover;
   }
@@ -43,7 +36,7 @@ export const PlayerChoiceContainer = styled.div<PropsPlayer>`
   }
 `;
 
-export const ComputerChoiceContainer = styled.div<PropsComputer>`
+export const ComputerChoiceContainer = styled.div<{ borderColor: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,13 +46,9 @@ export const ComputerChoiceContainer = styled.div<PropsComputer>`
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   border: ${(props) =>
-    props.borderColorComputer
-      ? `1rem solid ${props.borderColorComputer}`
-      : "none"};
+    props.borderColor ? `1rem solid ${props.borderColor}` : "none"};
   background-color: ${(props) =>
-    props.borderColorComputer
-      ? "hsla(0, 0%, 100%, 1)"
-      : "hsla(0, 0%, 0%, 0.3)"};
+    props.borderColor ? "hsla(0, 0%, 100%, 1)" : "hsla(0, 0%, 0%, 0.3)"};
   img {
     object-fit: cover;
   }

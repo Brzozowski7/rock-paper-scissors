@@ -5,10 +5,4 @@ interface Choice {
   color: string;
   src: string;
 }
-interface ISetBoolean {
-  setRulesActive: Dispatch<SetStateAction<boolean>>;
-}
 
-interface ISetChoice {
-  setPlayerChoice: Dispatch<SetStateAction<Choice>>;
-}

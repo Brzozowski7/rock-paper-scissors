@@ -5,7 +5,7 @@ import Options from "../components/Options";
 import RulesBtn from "../components/RulesBtn";
 import Rules from "../components/Rules";
 import Duel from "../components/Duel";
-import { useLocalStorage } from "./useLocalStorage";
+import useLocalStorage from "./useLocalStorage";
 
 function App() {
   const [rulesActive, setRulesActive] = useState<boolean>(false);
@@ -15,7 +15,7 @@ function App() {
     "score",
     scoreCounter
   );
-  
+
   useEffect(() => {
     setScoreCounter(localStorageScore);
   }, []);

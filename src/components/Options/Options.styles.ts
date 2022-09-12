@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-interface Option {
-  borderColor: string;
-}
-
 export const Wrapper = styled.main`
   position: relative;
   border-radius: 50%;
@@ -15,7 +11,7 @@ export const Wrapper = styled.main`
   }
 `;
 
-export const OptionContainer = styled.div<Option>`
+export const OptionContainer = styled.div<{ borderColor: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
