@@ -7,9 +7,10 @@ import {
   Choices,
   BackBtn,
 } from "./Duel.styles";
-import { gameOptions } from "../../misc/gameOptions";
+
 import { checkWinner } from "./Duel.utils";
-import {Value} from "../../common"
+import { Value } from "../../common";
+import useRandomComputerChoice from "./useRandomComputerChoice";
 
 interface DuelProps {
   playerChoice: {
@@ -26,30 +27,16 @@ export default function Duel({
   setPlayerChoice,
   setScoreCounter,
 }: DuelProps) {
+  const [result, setResult] = useState(0);
+  const computerChoice = useRandomComputerChoice();
 
-  const [computerChoice, setComputerChoice] = useState({} as Choice);
-  const [result, setResult] = useState<number>(0);
-
-  const randomComputerChoice = (): void => {
-    const randomNumber = Math.floor(Math.random() * 5);
-    setComputerChoice({
-      value: gameOptions[randomNumber].value,
-      src: gameOptions[randomNumber].src,
-      color: gameOptions[randomNumber].color,
-    });
-  };
-
-  const goBack = (): void => {
+  const goBack = () => {
     setPlayerChoice({
       value: Value.Null,
       color: "",
       src: "",
     });
   };
-
-  useEffect(() => {
-    randomComputerChoice();
-  }, []);
 
   useEffect(() => {
     setResult(checkWinner(playerChoice.value, computerChoice.value));
