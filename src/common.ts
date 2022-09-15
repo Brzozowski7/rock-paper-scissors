@@ -4,5 +4,5 @@ export enum Value {
   Rock = "Rock",
   Spock = "Spock",
   Lizard = "Lizard",
-  Null = "",
+  Empty = "",
 }

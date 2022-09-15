@@ -15,6 +15,7 @@ const useRandomComputerChoice = () => {
   useEffect(() => {
     randomComputerChoice();
   }, []);
+  
   return computerChoice;
 };
 export default useRandomComputerChoice;
